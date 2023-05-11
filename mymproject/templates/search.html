@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .card {
+        border: 2px solid black;
+        height: 200px;
+        width: 600px;
+        padding: 20px;
+      }
+      .profileimg {
+        float: right;
+        height: 180px;
+      }
+      .profileimg img {
+        height: 180px;
+        margin-top: -140px;
+      }
+    </style>
+  </head>
+  <body>
+    {% for profile in searchprofiles %}
+    <a href="profile/{{profile.user}}" style="cursor: pointer">
+      <div class="card">
+        <h3>UserName: {{ profile.user }}</h3>
+        <h3>Email: {{ profile.email }}</h3>
+        <h3>Bio: {{ profile.bio }}</h3>
+        <div class="profileimg">
+          <img src="{{profile.profileimg.url}}" />
+        </div>
+      </div>
+    </a>
+    <br /><br /><br /><br /><br /><br /><br />
+    {% endfor %}
+  </body>
+</html>
